@@ -1,0 +1,15 @@
+There is a graph - road system. Each link has weight and each node has status, role and id:
+
+    Link weight. This is the time is taken to move from one node to another and vice verse by car.
+    Node status. Only one possible value is "crash". If it's set then car cannot go to that specific node (so it will be like 
+    Node id. The identifier for internal system usage.
+    Node role can be either start or finish.
+
+You need to find a shortest way from "start node" to "finish node":
+
+1.  The car starts from start node and must find the optimal way (by time) to finish node.
+2.  Consider that link can only have one weight. Back way takes the same time.
+3.  Application must report any errors to user (incorrect xml, no route, no start node etc).
+4.  Application should shows user the shortest way as array of node id's.
+5.  Application must parse xml file for input data (see below for file structure). Sample file see in attachment.
+6.  Application reads the road system from external xml file.

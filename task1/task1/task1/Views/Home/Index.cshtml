@@ -1,0 +1,35 @@
+﻿@model task1.Models.IndexDataViewModel
+@{
+    ViewBag.Title = "Exchange rates";
+}
+<h2>
+</h2>
+@using (Html.BeginForm()) {   
+    <fieldset>
+        <legend>Get exchange rates for the period</legend>
+        @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BeginDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.BeginDate, "{0:d}", new { @class = "datePicker" })
+            @Html.ValidationMessageFor(model => model.BeginDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EndDate, "{0:d}", new { @class = "datePicker" })
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Currency)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Currency", Model.Currencies)
+            @Html.ValidationMessageFor(model => model.Currency)
+        </div>
+        <input type="submit" value="Get rates" />
+    </fieldset>
+}
+@((DotNet.Highcharts.Highcharts)ViewBag.Chart)
